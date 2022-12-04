@@ -1,23 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
 body{
-    color: #fff;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #d2f04e, #23d5ab);
-    background-size: 400% 400%;
-    animation: change 20s ease-in-out infinite;
+    background-color:whitesmoke;
+    margin: 0;
 }
 
+h1{
+    font-family: 'Zen Dots', cursive;
+    margin-top: 1rem;
+    text-align: center;
+    color: deeppink;
+    letter-spacing: 1.3rem;
+    
+}
 
-    
-   
-    
-    @keyframes change {
-    0% {
-    background-position: 0 50%;
-    }
-    50% {
-    background-position: 100% 50%;
-    }
-    
-    100% {
-    background-position: 0 50%;
-    }
-    }
