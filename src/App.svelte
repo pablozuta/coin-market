@@ -3,7 +3,7 @@
   const API_URL =
     'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
 
-  let titles = ['#', 'Coin', 'Price', 'Price Change', '24h Volume']
+  let titles = [' ', 'COIN', 'PRICE', 'CHANGE', '24h VOLUME']
   let coins = []
   let filteredCoins = []
   let ref = null
@@ -40,14 +40,14 @@
       type="text"
       class="input"
       placeholder="Search Your Coin"
-      on:keyup={({ target: { value } }) => searchCoin(value)}
+      on:keyup={({ target: {value} }) => searchCoin(value)}
       bind:this={ref}
     />
 
     <table class="table table-dark">
       <!--aca empieza la cabezera de nuestra tabla-->
       <thead>
-        <tr>
+        <tr class="text-warning">
           {#each titles as title}
             <th>{title}</th>
           {/each}
@@ -58,19 +58,19 @@
       <tbody>
         {#each filteredCoins as coin, i}
           <tr>
-            <td class="text-muted">{i + 1}</td>
+            <td class="text-muted"> <img
+              src={coin.image}
+              alt={coin.name}
+              style="width:1.5rem ;"
+              class="img-fluid "
+            /></td>
 
             <td>
-              <img
-                src={coin.image}
-                alt={coin.name}
-                style="width:2rem ;"
-                class="img-fluid me-2"
-              />
+             
               <span>
                 {coin.name}
               </span>
-              <span class="text-muted text-uppercase ms-2">
+              <span class="text-muted text-uppercase ">
                 {coin.symbol}
               </span>
             </td>
@@ -80,7 +80,7 @@
             </td>
             <td
               class={coin.price_change_percentage_24h > 0
-                ? 'text-success'
+                ? 'text-info'
                 : 'text-danger'}
             >
               {coin.price_change_percentage_24h} %
@@ -94,12 +94,28 @@
     </table>
   </div>
 </div>
+<p>On January 3, 2009, an anonymous individual (or group of individuals) going by the name Satoshi Nakamoto launched Bitcoin – the first and still the biggest crypto by market cap. Bitcoin proved the feasibility of blockchain-based virtual currencies and drew the attention of investors, the tech community, and idealists who saw it as the future of money. In particular, people were impressed with Bitcoin’s features of decentralization, immutability, censorship resistance, and scarcity. 
+
+  Although Bitcoin was the first practical public digital currency, it’s not the only crypto in existence – there are over 13,000 cryptocurrencies. These cryptos can be classified based on their use cases, utility, and many other factors. Read on to learn more about the different types of cryptocurrencies and for some ideas on how to diversify your crypto portfolio.</p>
 
 <style>
   .input {
     margin-block: 2rem;
     background: black;
-    color: deeppink;
+    color: whitesmoke;
     font-size: 1.2rem;
+  }
+
+  p{
+    margin-inline: 9%;
+    text-align: center;
+    text-justify:inter-word;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+  }
+  @media(max-width:800){
+    p{
+      margin-inline: 0.5rem;
+    }
   }
 </style>

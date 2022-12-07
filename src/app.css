@@ -6,10 +6,10 @@ body{
 }
 
 h1{
-    font-family: 'Zen Dots', cursive;
+
     margin-top: 1rem;
     text-align: center;
-    color: deeppink;
+    font-weight: 900;
     letter-spacing: 1.3rem;
     
 }
