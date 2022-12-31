@@ -44,13 +44,15 @@
       bind:this={ref}
     />
 
-    <table class="table table-dark">
+    <table class="table table-dark table-striped ">
       <!--aca empieza la cabezera de nuestra tabla-->
       <thead>
         <tr class="text-warning">
-          {#each titles as title}
-            <th>{title}</th>
-          {/each}
+          <th scope="col" class="moneda"> </th>
+          <th scope="col">COIN</th>
+          <th scope="col">PRICE</th>
+          <th scope="col">CHANGE</th>
+         <th scope="col">24H</th>
         </tr>
       </thead>
 
@@ -61,21 +63,24 @@
             <td class="text-muted"> <img
               src={coin.image}
               alt={coin.name}
-              style="width:1.5rem ;"
+              style="width:1.5rem;"
               class="img-fluid "
             /></td>
 
-            <td>
+            <!--aca empieza la columna de nombre de monedas-->
+            <td class="nombre-coin">
              
-              <span>
+              <span >
                 {coin.name}
+                
               </span>
-              <span class="text-muted text-uppercase ">
+              <span class="text-muted text-uppercase siglas">
                 {coin.symbol}
               </span>
             </td>
 
-            <td>
+            <!--aca empieza la columna precio de moneda-->
+            <td class="precio-coin">
               ${coin.current_price.toLocaleString()}
             </td>
             <td
@@ -85,7 +90,7 @@
             >
               {coin.price_change_percentage_24h} %
             </td>
-            <td>
+            <td >
               ${coin.total_volume.toLocaleString()}
             </td>
           </tr>
@@ -107,15 +112,32 @@
   }
 
   p{
-    margin-inline: 9%;
-    text-align: center;
+    margin-inline: 8%;
+    text-align: left;
     text-justify:inter-word;
     font-size: 1.3rem;
     margin-bottom: 3rem;
   }
-  @media(max-width:800){
+ 
+  @media(max-width:800px){
     p{
       margin-inline: 0.5rem;
     }
+    .siglas{
+      display: none;
+    }
+    .moneda{
+      display: none;
+    }
+    .text-muted{
+      display: none;
+    }
+    .nombre-coin{
+    width: 0.5rem;
+  }
+    .precio-coin{
+    width: 0.5rem;
+  }
+    
   }
 </style>
