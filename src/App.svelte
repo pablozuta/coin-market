@@ -48,7 +48,7 @@
         bind:this={ref}
       />
 
-      <table class="table table-dark table-striped ">
+      <table class="table table-dark table-striped">
         <!--aca empieza la cabezera de nuestra tabla-->
         <thead>
           <tr class="text-warning">
@@ -106,11 +106,16 @@
 </main>
 
 <style>
+  h1 {
+    color: whitesmoke;
+    letter-spacing: 0.7rem;
+  }
   .input {
     margin-block: 2rem;
     background: black;
     color: whitesmoke;
     font-size: 1.2rem;
+    
   }
 
   @media (max-width: 800px) {
@@ -128,6 +133,10 @@
     }
     .precio-coin {
       width: 0.5rem;
+    }
+    .input {
+      width: 90%;
+      margin-inline: auto;
     }
   }
 </style>
