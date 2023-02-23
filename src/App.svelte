@@ -32,76 +32,78 @@
 </script>
 
 <!-- Aca comienza el codigo HTML -->
-<h1>COIN MARKET</h1>
-<div class="container">
-  <div class="row">
-    <!--boton de busqueda-->
-    <input
-      type="text"
-      class="input"
-      placeholder="Search Your Coin"
-      on:keyup={({ target: {value} }) => searchCoin(value)}
-      bind:this={ref}
-    />
+<main>
+  <header>
+    <h1>COIN MARKET</h1>
+  </header>
 
-    <table class="table table-dark table-striped ">
-      <!--aca empieza la cabezera de nuestra tabla-->
-      <thead>
-        <tr class="text-warning">
-          <th scope="col" class="moneda"> </th>
-          <th scope="col">COIN</th>
-          <th scope="col">PRICE</th>
-          <th scope="col">CHANGE</th>
-         <th scope="col">24H</th>
-        </tr>
-      </thead>
+  <div class="container">
+    <div class="row">
+      <!--boton de busqueda-->
+      <input
+        type="text"
+        class="input"
+        placeholder="Search Your Coin"
+        on:keyup={({ target: { value } }) => searchCoin(value)}
+        bind:this={ref}
+      />
 
-      <!--aca empieza el body de nuestra tabla-->
-      <tbody>
-        {#each filteredCoins as coin, i}
-          <tr>
-            <td class="text-muted"> <img
-              src={coin.image}
-              alt={coin.name}
-              style="width:1.5rem;"
-              class="img-fluid "
-            /></td>
-
-            <!--aca empieza la columna de nombre de monedas-->
-            <td class="nombre-coin">
-             
-              <span >
-                {coin.name}
-                
-              </span>
-              <span class="text-muted text-uppercase siglas">
-                {coin.symbol}
-              </span>
-            </td>
-
-            <!--aca empieza la columna precio de moneda-->
-            <td class="precio-coin">
-              ${coin.current_price.toLocaleString()}
-            </td>
-            <td
-              class={coin.price_change_percentage_24h > 0
-                ? 'text-info'
-                : 'text-danger'}
-            >
-              {coin.price_change_percentage_24h} %
-            </td>
-            <td >
-              ${coin.total_volume.toLocaleString()}
-            </td>
+      <table class="table table-dark table-striped ">
+        <!--aca empieza la cabezera de nuestra tabla-->
+        <thead>
+          <tr class="text-warning">
+            <th scope="col" class="moneda" />
+            <th scope="col">COIN</th>
+            <th scope="col">PRICE</th>
+            <th scope="col">CHANGE</th>
+            <th scope="col">24H</th>
           </tr>
-        {/each}
-      </tbody>
-    </table>
-  </div>
-</div>
-<p>On January 3, 2009, an anonymous individual (or group of individuals) going by the name Satoshi Nakamoto launched Bitcoin – the first and still the biggest crypto by market cap. Bitcoin proved the feasibility of blockchain-based virtual currencies and drew the attention of investors, the tech community, and idealists who saw it as the future of money. In particular, people were impressed with Bitcoin’s features of decentralization, immutability, censorship resistance, and scarcity. 
+        </thead>
 
-  Although Bitcoin was the first practical public digital currency, it’s not the only crypto in existence – there are over 13,000 cryptocurrencies. These cryptos can be classified based on their use cases, utility, and many other factors. Read on to learn more about the different types of cryptocurrencies and for some ideas on how to diversify your crypto portfolio.</p>
+        <!--aca empieza el body de nuestra tabla-->
+        <tbody>
+          {#each filteredCoins as coin, i}
+            <tr>
+              <td class="text-muted">
+                <img
+                  src={coin.image}
+                  alt={coin.name}
+                  style="width:1.5rem;"
+                  class="img-fluid "
+                /></td
+              >
+
+              <!--aca empieza la columna de nombre de monedas-->
+              <td class="nombre-coin">
+                <span>
+                  {coin.name}
+                </span>
+                <span class="text-muted text-uppercase siglas">
+                  {coin.symbol}
+                </span>
+              </td>
+
+              <!--aca empieza la columna precio de moneda-->
+              <td class="precio-coin">
+                ${coin.current_price.toLocaleString()}
+              </td>
+              <td
+                class={coin.price_change_percentage_24h > 0
+                  ? 'text-info'
+                  : 'text-danger'}
+              >
+                {coin.price_change_percentage_24h} %
+              </td>
+              <td>
+                ${coin.total_volume.toLocaleString()}
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
 
 <style>
   .input {
@@ -111,33 +113,21 @@
     font-size: 1.2rem;
   }
 
-  p{
-    margin-inline: 8%;
-    text-align: left;
-    text-justify:inter-word;
-    font-size: 1.3rem;
-    margin-bottom: 3rem;
-  }
- 
-  @media(max-width:800px){
-    p{
-      margin-inline: 0.5rem;
-    }
-    .siglas{
+  @media (max-width: 800px) {
+    .siglas {
       display: none;
     }
-    .moneda{
+    .moneda {
       display: none;
     }
-    .text-muted{
+    .text-muted {
       display: none;
     }
-    .nombre-coin{
-    width: 0.5rem;
-  }
-    .precio-coin{
-    width: 0.5rem;
-  }
-    
+    .nombre-coin {
+      width: 0.5rem;
+    }
+    .precio-coin {
+      width: 0.5rem;
+    }
   }
 </style>
