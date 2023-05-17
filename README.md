@@ -16,9 +16,13 @@ Table of Contents
 
 ## Technologies Used
 [SvelteKit](https://kit.svelte.dev/)
-[Bootstrap](https://getbootstrap.com/)
+
+[Bootstrap](https://getbootstrap.com/)  
+
 [Coin Gecko](https://www.coingecko.com/en/api/documentation)
+
 [SVG Backgrounds](https://www.svgbackgrounds.com/)
+
 [Vercel](https://vercel.com/)
 
 
